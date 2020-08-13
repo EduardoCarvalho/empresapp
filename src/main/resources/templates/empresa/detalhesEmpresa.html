@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+    	<title>Empresas App</title>
+	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+	    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+	    <link rel="stylesheet" href="style/style.css"/>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+	<body>
+		<header>
+			<nav class="z-depth-1">
+			    <div class="nav-wrapper white">
+			      <a href="#" class="brand-logo black-text">&nbsp;Detalhes da Empresa</a>
+			      <ul id="nav-mobile" class="right hide-on-med-and-down">
+			        <li><a href="/empresas" class="waves-effect waves-light black btn"><i class="material-icons left">format_list_bulleted</i>Lista de Empresas</a></li>
+			      </ul>
+			    </div>
+		  	</nav>
+		  	<br>&nbsp;</br>
+		</header>
+		<div th:each="empresa : ${empresa}" class="container detalhesEmpresa">
+			<div class="row">
+				<p><b>CNPJ: </b><span th:text="${empresa.cnpj}"></span></p>
+				<p><b>Razão Social: </b><span th:text="${empresa.razaoSocial}"></span></p>
+				<p><b>Nome Fantasia: </b><span th:text="${empresa.nomeFantasia}"></span></p>
+			</div>
+		</div>
+		
+		<div class="container formFuncionario">
+			<form method="post">
+				<div class=row>
+					<div class="input-field col s6">
+						Nome: <input type="text" value="" name="nome" required/>
+					</div>
+					<div class="input-field col s6">
+						CPF: <input type="text" value="" name="cpf" class="form-control" id="cpf" placeholder="Ex.: 000.000.000-00" pattern="/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/" title="CPF inválido" required/>
+					</div>
+				</div>
+				<div class=row>
+					<div class="input-field col s3">
+						<button class="waves-effect waves-light btn" type="submit">Inserir funcionário</button>
+					</div>
+				</div>
+			</form>
+		</div>
+			
+		<table class="container tabelaFuncionario">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>CPF</th>
+					<th>Deletar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="funcionario : ${funcionarios}">
+					<td><span th:text="${funcionario.nome}"></span></td>
+					<td><span th:text="${funcionario.cpf}"></span></td>
+					<td><a class="waves-effect waves-light btn-floating btn-small grey" th:href="${(#mvc.url('EC#deletarFuncionario').arg(0, funcionario.id)).build()}"><i class="material-icons left">delete</i></a></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+		<script type="text/javascript">$("#cpf").mask("000.000.000-00");</script>
+	</body>
+</html>

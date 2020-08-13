@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      
+	<head>
+    	<title>EmpresasApp</title>
+    	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+	    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+	    <link rel="stylesheet" href="style/style.css"/>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>    
+	</head>
+	<body>
+		<header>
+			<nav>
+			    <div class="nav-wrapper white">
+			      <a href="#" class="brand-logo black-text">&nbsp;Cadastro de Empresas</a>
+			      <ul id="nav-mobile" class="right hide-on-med-and-down">
+			        <li><a href="/empresas" class="waves-effect waves-light black btn"><i class="material-icons left">format_list_bulleted</i>Lista de Empresas</a></li>
+			      </ul>
+			    </div>
+		  	</nav>
+		  	<br>&nbsp;</br>
+		</header>
+		<div class="container formCadastroEmpresa">
+			<form method="post">
+				<div class=row>
+					<div class="input-field col s6">
+						CNPJ: <input type="text" value="" name="cnpj" class="form-control" id="cnpj" placeholder="Ex.: 00.000.000/0000-00" pattern="[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}\-?[0-9]{2}" title="CNPJ inválido" required/>
+					</div>
+					<div class="input-field col s6">
+						Razão Social: <input type="text" value="" name="razaoSocial" required/>
+					</div>
+				</div>
+				<div class=row>
+					<div class="input-field col s12">
+						Nome Fantasia: <input type="text" value="" name="nomeFantasia" required/>
+					</div>
+				</div>
+				<div class=row>
+					<div class="input-field col s1">
+						<button class="waves-effect waves-light btn" type="submit">Salvar</button>
+					</div>
+				</div>		
+			</form>
+		</div>
+		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+		<script type="text/javascript">$("#cnpj").mask("00.000.000/0000-00");</script>
+	</body>      
+    
+</html>

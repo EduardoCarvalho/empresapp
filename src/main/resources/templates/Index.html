@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+    	<title>Empresas App</title>
+	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+	    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+	    <link rel="stylesheet" href="style/style.css"/>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+	<body>
+		<header>
+			<nav>
+			    <div class="nav-wrapper white">
+			      <a href="#" class="brand-logo black-text">&nbsp;Lista de Empresas</a>
+			      <ul id="nav-mobile" class="right hide-on-med-and-down">
+			        <li><a href="/cadastrarEmpresa" class="waves-effect waves-light black btn"><i class="material-icons left">add_circle_outline</i>Cadastrar empresa</a></li>
+			      </ul>
+			    </div>
+		  	</nav>
+		  	<br>&nbsp;</br>
+		</header>
+		
+		<table class="container">
+			<thead>
+				<tr>
+					<th>Razão Social</th>
+					<th>Nome Fantasia</th>
+					<th>CNPJ</th>
+					<th>Deletar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each= "empresa : ${empresas}">
+					<td><a th:href="${(#mvc.url('EC#detalhesEmpresa').arg(0, empresa.id)).build()}"><span th:text="${empresa.razaoSocial}"></span></a></td>
+					<td><span th:text="${empresa.nomeFantasia}"></span></td>
+					<td><span th:text="${empresa.cnpj}"></span></td>
+					<td><a class="waves-effect waves-light btn-floating btn-small grey" th:href="${(#mvc.url('EC#deletarEmpresa').arg(0, empresa.id)).build()}"><i class="material-icons left">delete</i></a></td>
+					
+				</tr>
+			</tbody>
+		</table>
+		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	</body>
+</html>

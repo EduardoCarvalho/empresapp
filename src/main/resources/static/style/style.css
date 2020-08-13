@@ -1,0 +1,35 @@
+.detalhesEmpresa {
+	box-shadow: 0px 0px 5px grey;
+	padding-top: 5px;
+	padding-left: 20px;
+	padding-bottom: 5px;
+	margin-bottom: 60px;
+}
+
+.formEmpresa {
+	box-shadow: 0px 0px 5px grey;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-bottom: 5px;
+	margin-bottom: 60px;
+}
+
+.formCadastroEmpresa {
+	box-shadow: 0px 0px 5px grey;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-bottom: 5px;
+	margin-bottom: 60px;
+}
+
+.tabelaFuncionario {
+	width: 50%;
+}
+
+.formFuncionario {
+	box-shadow: 0px 0px 5px grey;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-bottom: 15px;
+	margin-bottom: 60px;
+}
